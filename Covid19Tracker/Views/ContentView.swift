@@ -18,12 +18,11 @@ class ChartViewModel: ObservableObject {
     var max = 1
     var increase = 0
     
-    init(country: SelectedCountry) {
-        self.selectedCountry = country
-        
+    func refreshData() {
         guard let url = URL(string: Constants.covidDeathsURL) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, err) in
+            print("☁️ Data fetched")
             // TODO: add error checking
             guard let data = data else { return }
             
@@ -60,6 +59,12 @@ class ChartViewModel: ObservableObject {
                 print("JSON decode failed: \(error)")
             }
         }.resume()
+    }
+    
+    init(country: SelectedCountry) {
+        self.selectedCountry = country
+        
+        refreshData()
     }
 }
 
