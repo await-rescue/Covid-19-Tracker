@@ -14,6 +14,7 @@ class ChartViewModel: ObservableObject {
     @Published var dataSet = [CovidData]()
     
     var max = 1
+    var increase = 0
     
     init() {
         guard let url = URL(string: Constants.covidDeathsURL) else { return }
@@ -32,6 +33,11 @@ class ChartViewModel: ObservableObject {
                     if let maxData = maxData {
                         self.max = maxData.deaths
                     }
+                    
+                    let lastIndex = self.dataSet.count - 1
+                    // Should probably check if elements exist
+                    self.increase = self.dataSet[lastIndex].deaths - self.dataSet[lastIndex - 1].deaths
+                    
                 }
                
             } catch {
@@ -46,7 +52,7 @@ struct Chart: View {
     
     var body: some View {
         VStack {
-            Text("Total deaths: \(dataViewModel.max)")
+            Text("Total deaths: \(dataViewModel.max) (+\(dataViewModel.increase))")
             
             HStack (alignment: .bottom, spacing: 4) {
                 ForEach(dataViewModel.dataSet, id: \.self) { day in
@@ -68,6 +74,8 @@ struct ContentView: View {
         VStack {
             Text("SARS-CoV-2")
                 .font(.system(size: 34, weight: .bold))
+            
+            Divider()
             
             Chart()
         }
