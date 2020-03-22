@@ -14,10 +14,11 @@
 		B54D07D42427734D0067ACDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B54D07D22427734D0067ACDF /* Main.storyboard */; };
 		B54D07DD242773780067ACDF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54D07DC242773780067ACDF /* Constants.swift */; };
 		B54D07DF2427799A0067ACDF /* CovidTimeSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54D07DE2427799A0067ACDF /* CovidTimeSeries.swift */; };
+		B59793E42427B80C0073C3BA /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59793E32427B80C0073C3BA /* ChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B54D07C62427734B0067ACDF /* Covid19Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Covid19Tracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B54D07C62427734B0067ACDF /* Covid19TrackerMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Covid19TrackerMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54D07C92427734B0067ACDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B54D07CB2427734B0067ACDF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B54D07CD2427734D0067ACDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -27,6 +28,7 @@
 		B54D07D62427734D0067ACDF /* Covid19Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Covid19Tracker.entitlements; sourceTree = "<group>"; };
 		B54D07DC242773780067ACDF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B54D07DE2427799A0067ACDF /* CovidTimeSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidTimeSeries.swift; sourceTree = "<group>"; };
+		B59793E32427B80C0073C3BA /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +53,7 @@
 		B54D07C72427734B0067ACDF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B54D07C62427734B0067ACDF /* Covid19Tracker.app */,
+				B54D07C62427734B0067ACDF /* Covid19TrackerMac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,6 +93,7 @@
 		B54D07E32427934C0067ACDF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B59793E32427B80C0073C3BA /* ChartView.swift */,
 				B54D07CB2427734B0067ACDF /* ContentView.swift */,
 			);
 			path = Views;
@@ -99,9 +102,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B54D07C52427734B0067ACDF /* Covid19Tracker */ = {
+		B54D07C52427734B0067ACDF /* Covid19TrackerMac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B54D07D92427734D0067ACDF /* Build configuration list for PBXNativeTarget "Covid19Tracker" */;
+			buildConfigurationList = B54D07D92427734D0067ACDF /* Build configuration list for PBXNativeTarget "Covid19TrackerMac" */;
 			buildPhases = (
 				B54D07C22427734B0067ACDF /* Sources */,
 				B54D07C32427734B0067ACDF /* Frameworks */,
@@ -111,9 +114,9 @@
 			);
 			dependencies = (
 			);
-			name = Covid19Tracker;
+			name = Covid19TrackerMac;
 			productName = Covid19Tracker;
-			productReference = B54D07C62427734B0067ACDF /* Covid19Tracker.app */;
+			productReference = B54D07C62427734B0067ACDF /* Covid19TrackerMac.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -131,7 +134,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B54D07C12427734B0067ACDF /* Build configuration list for PBXProject "Covid19Tracker" */;
+			buildConfigurationList = B54D07C12427734B0067ACDF /* Build configuration list for PBXProject "Covid19TrackerMac" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -144,7 +147,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B54D07C52427734B0067ACDF /* Covid19Tracker */,
+				B54D07C52427734B0067ACDF /* Covid19TrackerMac */,
 			);
 		};
 /* End PBXProject section */
@@ -170,6 +173,7 @@
 				B54D07CC2427734B0067ACDF /* ContentView.swift in Sources */,
 				B54D07CA2427734B0067ACDF /* AppDelegate.swift in Sources */,
 				B54D07DD242773780067ACDF /* Constants.swift in Sources */,
+				B59793E42427B80C0073C3BA /* ChartView.swift in Sources */,
 				B54D07DF2427799A0067ACDF /* CovidTimeSeries.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,7 +354,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B54D07C12427734B0067ACDF /* Build configuration list for PBXProject "Covid19Tracker" */ = {
+		B54D07C12427734B0067ACDF /* Build configuration list for PBXProject "Covid19TrackerMac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B54D07D72427734D0067ACDF /* Debug */,
@@ -359,7 +363,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B54D07D92427734D0067ACDF /* Build configuration list for PBXNativeTarget "Covid19Tracker" */ = {
+		B54D07D92427734D0067ACDF /* Build configuration list for PBXNativeTarget "Covid19TrackerMac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B54D07DA2427734D0067ACDF /* Debug */,
