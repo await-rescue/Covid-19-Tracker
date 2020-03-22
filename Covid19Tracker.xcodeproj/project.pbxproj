@@ -12,6 +12,8 @@
 		B54D07CE2427734D0067ACDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B54D07CD2427734D0067ACDF /* Assets.xcassets */; };
 		B54D07D12427734D0067ACDF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B54D07D02427734D0067ACDF /* Preview Assets.xcassets */; };
 		B54D07D42427734D0067ACDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B54D07D22427734D0067ACDF /* Main.storyboard */; };
+		B54D07DD242773780067ACDF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54D07DC242773780067ACDF /* Constants.swift */; };
+		B54D07DF2427799A0067ACDF /* CovidTimeSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54D07DE2427799A0067ACDF /* CovidTimeSeries.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		B54D07D32427734D0067ACDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B54D07D52427734D0067ACDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B54D07D62427734D0067ACDF /* Covid19Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Covid19Tracker.entitlements; sourceTree = "<group>"; };
+		B54D07DC242773780067ACDF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B54D07DE2427799A0067ACDF /* CovidTimeSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidTimeSeries.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +59,9 @@
 		B54D07C82427734B0067ACDF /* Covid19Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				B54D07DE2427799A0067ACDF /* CovidTimeSeries.swift */,
 				B54D07C92427734B0067ACDF /* AppDelegate.swift */,
+				B54D07DC242773780067ACDF /* Constants.swift */,
 				B54D07CB2427734B0067ACDF /* ContentView.swift */,
 				B54D07CD2427734D0067ACDF /* Assets.xcassets */,
 				B54D07D22427734D0067ACDF /* Main.storyboard */,
@@ -147,6 +153,8 @@
 			files = (
 				B54D07CC2427734B0067ACDF /* ContentView.swift in Sources */,
 				B54D07CA2427734B0067ACDF /* AppDelegate.swift in Sources */,
+				B54D07DD242773780067ACDF /* Constants.swift in Sources */,
+				B54D07DF2427799A0067ACDF /* CovidTimeSeries.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
