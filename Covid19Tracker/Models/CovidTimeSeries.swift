@@ -20,7 +20,7 @@ struct CovidTimeSeries: Codable {
     let austria: [CovidData]
     let italy: [CovidData]
     let spain: [CovidData]
-    let us: [CovidData]
+    let usa: [CovidData]
 }
 
 extension CovidTimeSeries {
@@ -29,6 +29,6 @@ extension CovidTimeSeries {
         case austria = "Austria"
         case italy = "Italy"
         case spain = "Spain"
-        case us = "US"
+        case usa = "US"
     }
 }

@@ -13,10 +13,14 @@ import SwiftUI
 class ChartViewModel: ObservableObject {
     @Published var dataSet = [CovidData]()
     
+    var selectedCountry: SelectedCountry
+    
     var max = 1
     var increase = 0
     
-    init() {
+    init(country: SelectedCountry) {
+        self.selectedCountry = country
+        
         guard let url = URL(string: Constants.covidDeathsURL) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, err) in
@@ -27,7 +31,19 @@ class ChartViewModel: ObservableObject {
                 let timeseries = try JSONDecoder().decode(CovidTimeSeries.self, from: data)
                 
                 DispatchQueue.main.async {
-                    self.dataSet = timeseries.italy.filter { $0.deaths > 0 }
+                    switch self.selectedCountry {
+                    case .italy:
+                        self.dataSet = timeseries.italy.filter { $0.deaths > 0 }
+                    case .uk:
+                        self.dataSet = timeseries.unitedKingdom.filter { $0.deaths > 0 }
+                    case .spain:
+                        self.dataSet = timeseries.spain.filter { $0.deaths > 0 }
+                    case .usa:
+                        self.dataSet = timeseries.usa.filter { $0.deaths > 0 }
+                    case .austria:
+                        self.dataSet = timeseries.austria.filter { $0.deaths > 0 }
+                    }
+                    
 
                     let maxData = self.dataSet.max { $0.deaths < $1.deaths }
                     if let maxData = maxData {
@@ -48,7 +64,7 @@ class ChartViewModel: ObservableObject {
 }
 
 struct Chart: View {
-    @ObservedObject var dataViewModel = ChartViewModel()
+    @ObservedObject var dataViewModel: ChartViewModel
     
     var body: some View {
         VStack {
@@ -69,15 +85,40 @@ struct Chart: View {
 }
 
 struct ContentView: View {
+
     var body: some View {
         
         VStack {
             Text("SARS-CoV-2")
                 .font(.system(size: 34, weight: .bold))
             
-            Divider()
+            TabView {
+                Chart(dataViewModel: ChartViewModel(country: .austria))
+                    .tabItem {
+                        Text("Austria")
+                    }
+                
+                Chart(dataViewModel: ChartViewModel(country: .italy))
+                    .tabItem {
+                        Text("Italy")
+                    }
+                
+                Chart(dataViewModel: ChartViewModel(country: .spain))
+                    .tabItem {
+                        Text("Spain")
+                    }
+                
+                Chart(dataViewModel: ChartViewModel(country: .uk))
+                    .tabItem {
+                        Text("UK")
+                    }
+                
+                Chart(dataViewModel: ChartViewModel(country: .usa))
+                    .tabItem {
+                        Text("USA")
+                    }
+            }
             
-            Chart()
         }
         .frame(width: 800, height: 600)
     }
