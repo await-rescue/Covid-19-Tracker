@@ -26,14 +26,10 @@ class ChartViewModel: ObservableObject {
                 let timeseries = try JSONDecoder().decode(CovidTimeSeries.self, from: data)
                 
                 DispatchQueue.main.async {
-                    self.dataSet = timeseries.unitedKingdom
-                    
-                    print(self.dataSet)
-                    
-                    // NOT WORKING
+                    self.dataSet = timeseries.italy.filter { $0.deaths > 0 }
+
                     let maxData = self.dataSet.max { $0.deaths < $1.deaths }
                     if let maxData = maxData {
-                        print(maxData)
                         self.max = maxData.deaths
                     }
                 }
@@ -49,14 +45,18 @@ struct Chart: View {
     @ObservedObject var dataViewModel = ChartViewModel()
     
     var body: some View {
-        HStack (alignment: .bottom, spacing: 4) {
-            ForEach(dataViewModel.dataSet, id: \.self) { day in
-                VStack {
-                    Spacer()
-                }
-                .frame(width: 8, height: (CGFloat(day.deaths) / CGFloat(self.dataViewModel.max)) * Constants.barHeight)
-                .background(Color.red)
+        VStack {
+            Text("Total deaths: \(dataViewModel.max)")
             
+            HStack (alignment: .bottom, spacing: 4) {
+                ForEach(dataViewModel.dataSet, id: \.self) { day in
+                    VStack {
+                        Spacer()
+                    }
+                    .frame(width: 8, height: (CGFloat(day.deaths) / CGFloat(self.dataViewModel.max)) * Constants.barHeight)
+                    .background(Color.red)
+                
+                }
             }
         }
     }
@@ -68,8 +68,6 @@ struct ContentView: View {
         VStack {
             Text("SARS-CoV-2")
                 .font(.system(size: 34, weight: .bold))
-            
-            Text("Total deaths: ")
             
             Chart()
         }
