@@ -59,10 +59,10 @@
 		B54D07C82427734B0067ACDF /* Covid19Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				B54D07DE2427799A0067ACDF /* CovidTimeSeries.swift */,
+				B54D07E12427932A0067ACDF /* Models */,
+				B54D07E32427934C0067ACDF /* Views */,
 				B54D07C92427734B0067ACDF /* AppDelegate.swift */,
 				B54D07DC242773780067ACDF /* Constants.swift */,
-				B54D07CB2427734B0067ACDF /* ContentView.swift */,
 				B54D07CD2427734D0067ACDF /* Assets.xcassets */,
 				B54D07D22427734D0067ACDF /* Main.storyboard */,
 				B54D07D52427734D0067ACDF /* Info.plist */,
@@ -78,6 +78,22 @@
 				B54D07D02427734D0067ACDF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B54D07E12427932A0067ACDF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B54D07DE2427799A0067ACDF /* CovidTimeSeries.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B54D07E32427934C0067ACDF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B54D07CB2427734B0067ACDF /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
