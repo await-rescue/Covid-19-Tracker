@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5094B0A2429205000447087 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5094B092429205000447087 /* ChartViewModel.swift */; };
 		B54D07CA2427734B0067ACDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54D07C92427734B0067ACDF /* AppDelegate.swift */; };
 		B54D07CC2427734B0067ACDF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54D07CB2427734B0067ACDF /* ContentView.swift */; };
 		B54D07CE2427734D0067ACDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B54D07CD2427734D0067ACDF /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5094B092429205000447087 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		B54D07C62427734B0067ACDF /* Covid-19 Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid-19 Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54D07C92427734B0067ACDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B54D07CB2427734B0067ACDF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,6 +52,14 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		B5094B082429203600447087 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B5094B092429205000447087 /* ChartViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		B54D07BD2427734B0067ACDF = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				B54D07E12427932A0067ACDF /* Models */,
+				B5094B082429203600447087 /* ViewModels */,
 				B54D07E32427934C0067ACDF /* Views */,
 				B5094B072428D32000447087 /* SupportingFiles */,
 				B54D07C92427734B0067ACDF /* AppDelegate.swift */,
@@ -202,6 +213,7 @@
 				B54D07CC2427734B0067ACDF /* ContentView.swift in Sources */,
 				B54D07CA2427734B0067ACDF /* AppDelegate.swift in Sources */,
 				B54D07DD242773780067ACDF /* Constants.swift in Sources */,
+				B5094B0A2429205000447087 /* ChartViewModel.swift in Sources */,
 				B59793E42427B80C0073C3BA /* ChartView.swift in Sources */,
 				B54D07DF2427799A0067ACDF /* CovidTimeSeries.swift in Sources */,
 			);
