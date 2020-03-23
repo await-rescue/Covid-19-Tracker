@@ -42,6 +42,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B5094B072428D32000447087 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				B54D07CD2427734D0067ACDF /* Assets.xcassets */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		B54D07BD2427734B0067ACDF = {
 			isa = PBXGroup;
 			children = (
@@ -63,9 +71,9 @@
 			children = (
 				B54D07E12427932A0067ACDF /* Models */,
 				B54D07E32427934C0067ACDF /* Views */,
+				B5094B072428D32000447087 /* SupportingFiles */,
 				B54D07C92427734B0067ACDF /* AppDelegate.swift */,
 				B54D07DC242773780067ACDF /* Constants.swift */,
-				B54D07CD2427734D0067ACDF /* Assets.xcassets */,
 				B54D07D22427734D0067ACDF /* Main.storyboard */,
 				B54D07D52427734D0067ACDF /* Info.plist */,
 				B54D07D62427734D0067ACDF /* Covid19Tracker.entitlements */,
