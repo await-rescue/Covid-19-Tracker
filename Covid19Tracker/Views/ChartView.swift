@@ -9,6 +9,14 @@
 import SwiftUI
 
 
+enum SelectedCountry {
+    case uk
+    case austria
+    case usa
+    case italy
+    case spain
+}
+
 class ChartViewModel: ObservableObject {
     @Published var dataSet = [CovidData]()
     
@@ -62,7 +70,6 @@ class ChartViewModel: ObservableObject {
     
     init(country: SelectedCountry) {
         self.selectedCountry = country
-        
         refreshData()
     }
 }
@@ -71,7 +78,7 @@ struct ChartView: View {
     @ObservedObject var dataViewModel: ChartViewModel
     
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
             Text("Total deaths: \(dataViewModel.max) (+\(dataViewModel.increase))")
             
             HStack (alignment: .bottom, spacing: 4) {
@@ -81,7 +88,6 @@ struct ChartView: View {
                     }
                     .frame(width: 8, height: (CGFloat(day.deaths) / CGFloat(self.dataViewModel.max)) * Constants.barHeight)
                     .background(Color.red)
-                
                 }
             }
         }

@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B54D07C62427734B0067ACDF /* Covid19TrackerMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Covid19TrackerMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B54D07C62427734B0067ACDF /* Covid-19 Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid-19 Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54D07C92427734B0067ACDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B54D07CB2427734B0067ACDF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B54D07CD2427734D0067ACDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,7 +53,7 @@
 		B54D07C72427734B0067ACDF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B54D07C62427734B0067ACDF /* Covid19TrackerMac.app */,
+				B54D07C62427734B0067ACDF /* Covid-19 Tracker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,21 +102,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B54D07C52427734B0067ACDF /* Covid19TrackerMac */ = {
+		B54D07C52427734B0067ACDF /* Covid-19 Tracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B54D07D92427734D0067ACDF /* Build configuration list for PBXNativeTarget "Covid19TrackerMac" */;
+			buildConfigurationList = B54D07D92427734D0067ACDF /* Build configuration list for PBXNativeTarget "Covid-19 Tracker" */;
 			buildPhases = (
 				B54D07C22427734B0067ACDF /* Sources */,
 				B54D07C32427734B0067ACDF /* Frameworks */,
 				B54D07C42427734B0067ACDF /* Resources */,
+				B51D06312427CE90009E67B1 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Covid19TrackerMac;
+			name = "Covid-19 Tracker";
 			productName = Covid19Tracker;
-			productReference = B54D07C62427734B0067ACDF /* Covid19TrackerMac.app */;
+			productReference = B54D07C62427734B0067ACDF /* Covid-19 Tracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -147,7 +148,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B54D07C52427734B0067ACDF /* Covid19TrackerMac */,
+				B54D07C52427734B0067ACDF /* Covid-19 Tracker */,
 			);
 		};
 /* End PBXProject section */
@@ -164,6 +165,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B51D06312427CE90009E67B1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B54D07C22427734B0067ACDF /* Sources */ = {
@@ -363,7 +384,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B54D07D92427734D0067ACDF /* Build configuration list for PBXNativeTarget "Covid19TrackerMac" */ = {
+		B54D07D92427734D0067ACDF /* Build configuration list for PBXNativeTarget "Covid-19 Tracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B54D07DA2427734D0067ACDF /* Debug */,
