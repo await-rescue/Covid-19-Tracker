@@ -14,7 +14,12 @@ struct ChartView: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            Text("Total deaths: \(dataViewModel.max) (+\(dataViewModel.increase))")
+            Button(action: {
+                self.dataViewModel.refreshData()
+            }) {
+                Text("Refresh")
+            }
+            Text("Total deaths: \(dataViewModel.max) (+\(dataViewModel.increase) today)")
             
             HStack (alignment: .bottom, spacing: 4) {
                 ForEach(dataViewModel.dataSet, id: \.self) { day in

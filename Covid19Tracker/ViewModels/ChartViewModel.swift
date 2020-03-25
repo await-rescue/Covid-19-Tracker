@@ -17,12 +17,29 @@ enum SelectedCountry {
 }
 
 class ChartViewModel: ObservableObject {
+    // MARK: - Properties
     @Published var dataSet = [CovidData]()
-    
     var selectedCountry: SelectedCountry
-    
     var max = 1
     var increase = 0
+    
+    // MARK: - Methods
+    func filterData(data: CovidTimeSeries, by country: SelectedCountry) -> [CovidData] {
+        // If we use an EnvironmentObject, we might as well make dataset a computed property
+        switch country {
+        case .italy:
+            return data.italy.filter { $0.deaths > 0 }
+        case .uk:
+            return data.unitedKingdom.filter { $0.deaths > 0 }
+        case .spain:
+            return data.spain.filter { $0.deaths > 0 }
+        case .usa:
+            return data.usa.filter { $0.deaths > 0 }
+        case .austria:
+            return data.austria.filter { $0.deaths > 0 }
+        }
+        
+    }
     
     func refreshData() {
         guard let url = URL(string: Constants.covidDeathsURL) else { return }
@@ -36,19 +53,8 @@ class ChartViewModel: ObservableObject {
                 let timeseries = try JSONDecoder().decode(CovidTimeSeries.self, from: data)
                 
                 DispatchQueue.main.async {
-                    switch self.selectedCountry {
-                    case .italy:
-                        self.dataSet = timeseries.italy.filter { $0.deaths > 0 }
-                    case .uk:
-                        self.dataSet = timeseries.unitedKingdom.filter { $0.deaths > 0 }
-                    case .spain:
-                        self.dataSet = timeseries.spain.filter { $0.deaths > 0 }
-                    case .usa:
-                        self.dataSet = timeseries.usa.filter { $0.deaths > 0 }
-                    case .austria:
-                        self.dataSet = timeseries.austria.filter { $0.deaths > 0 }
-                    }
                     
+                    self.dataSet = self.filterData(data: timeseries, by: self.selectedCountry)
 
                     let maxData = self.dataSet.max { $0.deaths < $1.deaths }
                     if let maxData = maxData {

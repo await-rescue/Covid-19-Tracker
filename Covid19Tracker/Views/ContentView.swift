@@ -19,14 +19,7 @@ struct ContentView: View {
             HStack(spacing: 20) {
                 Text("SARS-CoV-2")
                     .font(.system(size: 34, weight: .bold))
-                
-                Button(action: {
-                    print("refresh")
-                }) {
-                    Text("Refresh")
-                }
             }
-            
             
             TabView {
                 ChartView(dataViewModel: ChartViewModel(country: .austria))

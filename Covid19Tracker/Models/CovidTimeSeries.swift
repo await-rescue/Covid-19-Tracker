@@ -12,7 +12,8 @@ struct CovidData: Codable, Hashable {
     let date: String
     let confirmed: Int
     let deaths: Int
-    let recovered: Int
+    // optional as api has this as null sometimes
+    let recovered: Int?
 }
 
 struct CovidTimeSeries: Codable {
