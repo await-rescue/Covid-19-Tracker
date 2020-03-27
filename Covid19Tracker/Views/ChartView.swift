@@ -13,24 +13,29 @@ struct ChartView: View {
     @ObservedObject var dataViewModel: ChartViewModel
     
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 15) {
             Button(action: {
                 self.dataViewModel.refreshData()
             }) {
                 Text("Refresh")
             }
-            Text("Total deaths: \(dataViewModel.max) (+\(dataViewModel.increase) today)")
             
-            HStack (alignment: .bottom, spacing: 4) {
-                ForEach(dataViewModel.dataSet, id: \.self) { day in
-                    VStack {
-                        Spacer()
+            Text("Total deaths: \(dataViewModel.max) (+\(dataViewModel.increase))")
+            
+            // TODO: fade out on one edge
+            ScrollView(.horizontal, showsIndicators: true) {
+                HStack (alignment: .bottom, spacing: 4) {
+                    ForEach(dataViewModel.dataSet, id: \.self) { day in
+                        VStack {
+                            Spacer()
+                        }
+                        .frame(width: 8, height: (CGFloat(day.deaths) / CGFloat(self.dataViewModel.max)) * Constants.barHeight)
+                        .background(Color.red)
                     }
-                    // TODO: width should be adaptive for when we have a lot of data
-                    .frame(width: 8, height: (CGFloat(day.deaths) / CGFloat(self.dataViewModel.max)) * Constants.barHeight)
-                    .background(Color.red)
                 }
             }
+            .padding(.leading, 50)
+            .padding(.trailing, 50)
         }
     }
 }
