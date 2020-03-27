@@ -23,7 +23,7 @@ struct ChartView: View {
             Text("Total deaths: \(dataViewModel.max) (+\(dataViewModel.increase))")
             
             // TODO: fade out on one edge
-            ScrollView(.horizontal, showsIndicators: true) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 HStack (alignment: .bottom, spacing: 4) {
                     ForEach(dataViewModel.dataSet, id: \.self) { day in
                         VStack {
