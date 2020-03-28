@@ -19,10 +19,7 @@ struct ChartView: View {
             
             HStack {
                 Button(action: {
-                    // TODO: How do we ensure data was actually refreshed? Might need to put
-                    // update of label in a closure
-                    self.dataViewModel.refreshData()
-                    self.updateLastUpdated()
+                    self.updateData()
                 }) {
                     Text("Refresh")
                 }
@@ -48,11 +45,14 @@ struct ChartView: View {
             .padding(.leading, 50)
             .padding(.trailing, 50)
         }
-        .onAppear(perform: updateLastUpdated)
-        .onAppear(perform: dataViewModel.refreshData)
+        .onAppear(perform: updateData)
     }
     
-    func updateLastUpdated() {
+    func updateData() {
+        // TODO: How do we ensure data was actually refreshed? Might need to put
+        // update of label in a closure
+        dataViewModel.refreshData()
+        
         let now = Date()
         let formatter = DateFormatter()
         formatter.dateStyle = .short
