@@ -48,16 +48,20 @@ struct ChartView: View {
         .onAppear(perform: updateData)
     }
     
-    func updateData() {
-        // TODO: How do we ensure data was actually refreshed? Might need to put
-        // update of label in a closure
-        dataViewModel.refreshData()
-        
+    func updateLastUpdated() {
         let now = Date()
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.timeStyle = .short
         self.lastUpdated = "Last updated: \(formatter.string(from: now))"
+    }
+    
+    func updateData() {
+        // TODO: How do we ensure data was actually refreshed? Might need to put
+        // update of label in a closure
+        dataViewModel.refreshData()
+        
+        updateLastUpdated()
     }
 }
 

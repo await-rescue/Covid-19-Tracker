@@ -22,6 +22,12 @@ struct ContentView: View {
             }
             
             TabView {
+                
+                ChartView(dataViewModel: ChartViewModel(country: .china))
+                    .tabItem {
+                            Text("China")
+                    }
+            
                 ChartView(dataViewModel: ChartViewModel(country: .austria))
                     .tabItem {
                         Text("Austria")

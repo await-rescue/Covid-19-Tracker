@@ -11,6 +11,7 @@ import SwiftUI
 enum SelectedCountry {
     case uk
     case austria
+    case china
     case usa
     case italy
     case spain
@@ -37,6 +38,8 @@ class ChartViewModel: ObservableObject {
             return data.usa.filter { $0.deaths > 0 }
         case .austria:
             return data.austria.filter { $0.deaths > 0 }
+        case .china:
+            return data.china.filter { $0.deaths > 0 }
         }
         
     }

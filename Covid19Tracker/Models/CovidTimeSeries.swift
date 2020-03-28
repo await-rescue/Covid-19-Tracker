@@ -19,6 +19,7 @@ struct CovidData: Codable, Hashable {
 struct CovidTimeSeries: Codable {
     let unitedKingdom: [CovidData]
     let austria: [CovidData]
+    let china: [CovidData]
     let italy: [CovidData]
     let spain: [CovidData]
     let usa: [CovidData]
@@ -28,6 +29,7 @@ extension CovidTimeSeries {
     enum CodingKeys: String, CodingKey {
         case unitedKingdom = "United Kingdom"
         case austria = "Austria"
+        case china = "China"
         case italy = "Italy"
         case spain = "Spain"
         case usa = "US"
