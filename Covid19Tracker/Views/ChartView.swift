@@ -12,14 +12,25 @@ import SwiftUI
 struct ChartView: View {
     @ObservedObject var dataViewModel: ChartViewModel
     
+    @State private var lastUpdated: String = ""
+    
     var body: some View {
         VStack(spacing: 15) {
-            Button(action: {
-                self.dataViewModel.refreshData()
-            }) {
-                Text("Refresh")
-            }
             
+            HStack {
+                Button(action: {
+                    // TODO: How do we ensure data was actually refreshed? Might need to put
+                    // update of label in a closure
+                    self.dataViewModel.refreshData()
+                    self.updateLastUpdated()
+                }) {
+                    Text("Refresh")
+                }
+                
+                Text(lastUpdated)
+                    .font(.system(size: 10))
+            }
+
             Text("Total deaths: \(dataViewModel.max) (+\(dataViewModel.increase))")
             
             // TODO: fade out on one edge
@@ -37,6 +48,16 @@ struct ChartView: View {
             .padding(.leading, 50)
             .padding(.trailing, 50)
         }
+        .onAppear(perform: updateLastUpdated)
+        .onAppear(perform: dataViewModel.refreshData)
+    }
+    
+    func updateLastUpdated() {
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        self.lastUpdated = "Last updated: \(formatter.string(from: now))"
     }
 }
 
