@@ -32,14 +32,20 @@ struct ChartView: View {
             
             // TODO: fade out on one edge
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack (alignment: .bottom, spacing: 4) {
-                    ForEach(dataViewModel.dataSet, id: \.self) { day in
-                        VStack {
-                            Spacer()
+                VStack(spacing: 5) {
+                    HStack (alignment: .bottom, spacing: 4) {
+                        ForEach(dataViewModel.dataSet, id: \.self) { day in
+                            VStack {
+                                Spacer()
+                            }
+                            .frame(width: 8, height: (CGFloat(day.deaths) / CGFloat(self.dataViewModel.max)) * Constants.barHeight)
+                            .background(Color.red)
                         }
-                        .frame(width: 8, height: (CGFloat(day.deaths) / CGFloat(self.dataViewModel.max)) * Constants.barHeight)
-                        .background(Color.red)
                     }
+                    
+                    Text("1st death")
+                        .font(.system(size: 10))
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
             .padding(.leading, 50)
