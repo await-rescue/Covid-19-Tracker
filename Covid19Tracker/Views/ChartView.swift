@@ -31,7 +31,7 @@ struct ChartView: View {
             Text("Total deaths: \(dataViewModel.max) (+\(dataViewModel.increase))")
             
             // TODO: fade out on one edge
-            ScrollView(.horizontal, showsIndicators: false) {
+            ScrollView(.horizontal, showsIndicators: true) {
                 VStack(spacing: 5) {
                     HStack (alignment: .bottom, spacing: 4) {
                         ForEach(dataViewModel.dataSet, id: \.self) { day in
@@ -46,6 +46,7 @@ struct ChartView: View {
                     Text("1st death")
                         .font(.system(size: 10))
                         .frame(maxWidth: .infinity, alignment: .leading)
+                    Spacer()
                 }
             }
             .padding(.leading, 50)
@@ -54,7 +55,7 @@ struct ChartView: View {
         .onAppear(perform: updateData)
     }
     
-    func updateLastUpdated() {
+    private func updateLastUpdated() {
         let now = Date()
         let formatter = DateFormatter()
         formatter.dateStyle = .short
@@ -62,7 +63,7 @@ struct ChartView: View {
         self.lastUpdated = "Last updated: \(formatter.string(from: now))"
     }
     
-    func updateData() {
+    private func updateData() {
         // TODO: How do we ensure data was actually refreshed? Might need to put
         // update of label in a closure
         dataViewModel.refreshData()
