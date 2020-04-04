@@ -43,9 +43,14 @@ struct ChartView: View {
                         }
                     }
                     
-                    Text("1st death")
-                        .font(.system(size: 10))
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    HStack {
+                        Text("1st death")
+                            .font(.system(size: 10))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Text("Day \(dataViewModel.dataSet.count)")
+                            .font(.system(size: 10))
+                    }
                     
                     Spacer()
                 }
