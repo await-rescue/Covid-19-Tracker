@@ -11,5 +11,5 @@ import Foundation
 
 struct Constants {
     static let covidDeathsURL = "https://pomber.github.io/covid19/timeseries.json"
-    static let barHeight = CGFloat(325)
+    static let barHeight = CGFloat(370)
 }
