@@ -46,12 +46,14 @@ struct ChartView: View {
                     Text("1st death")
                         .font(.system(size: 10))
                         .frame(maxWidth: .infinity, alignment: .leading)
+                    
                     Spacer()
                 }
             }
-            .padding(.leading, 50)
-            .padding(.trailing, 50)
+            .padding(.leading, 30)
+            .padding(.trailing, 30)
         }
+        .padding(.top, 10)
         .onAppear(perform: updateData)
     }
     
