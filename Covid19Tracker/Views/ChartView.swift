@@ -35,6 +35,8 @@ struct ChartView: View {
                 VStack(spacing: 5) {
                     HStack (alignment: .bottom, spacing: 4) {
                         ForEach(dataViewModel.dataSet, id: \.self) { day in
+                            // Add hover (will need to separate out the bars into own component)
+                            // https://stackoverflow.com/questions/58260729/swiftui-not-very-responsive-to-hover-events
                             VStack {
                                 Spacer()
                             }
