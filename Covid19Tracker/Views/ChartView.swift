@@ -28,7 +28,7 @@ struct ChartView: View {
                     .font(.system(size: 10))
             }
 
-            Text("Total deaths: \(dataViewModel.max) (+\(dataViewModel.increase))")
+            Text("Total cases: \(dataViewModel.max) (+\(dataViewModel.increase))")
             
             // TODO: fade out on one edge
             ScrollView(.horizontal, showsIndicators: true) {
@@ -40,15 +40,17 @@ struct ChartView: View {
                             VStack {
                                 Spacer()
                             }
-                            .frame(width: 8, height: (CGFloat(day.deaths) / CGFloat(self.dataViewModel.max)) * Constants.barHeight)
+                            .frame(width: 8, height: (CGFloat(day.confirmed) / CGFloat(self.dataViewModel.max)) * Constants.barHeight)
                             .background(Color.red)
                         }
                     }
                     
                     HStack {
-                        Text("1st death")
+                        Text("1st case")
                             .font(.system(size: 10))
                             .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Spacer()
                         
                         Text("Day \(dataViewModel.dataSet.count)")
                             .font(.system(size: 10))

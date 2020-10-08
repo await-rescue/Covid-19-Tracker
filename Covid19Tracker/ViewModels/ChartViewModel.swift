@@ -29,23 +29,23 @@ class ChartViewModel: ObservableObject {
         // If we use an EnvironmentObject, we might as well make dataset a computed property
         switch country {
         case .italy:
-            return data.italy.filter { $0.deaths > 0 }
+            return data.italy.filter { $0.confirmed > 0 }
         case .uk:
-            return data.unitedKingdom.filter { $0.deaths > 0 }
+            return data.unitedKingdom.filter { $0.confirmed > 0 }
         case .spain:
-            return data.spain.filter { $0.deaths > 0 }
+            return data.spain.filter { $0.confirmed > 0 }
         case .usa:
-            return data.usa.filter { $0.deaths > 0 }
+            return data.usa.filter { $0.confirmed > 0 }
         case .austria:
-            return data.austria.filter { $0.deaths > 0 }
+            return data.austria.filter { $0.confirmed > 0 }
         case .china:
-            return data.china.filter { $0.deaths > 0 }
+            return data.china.filter { $0.confirmed > 0 	}
         }
         
     }
     
     func refreshData() {
-        guard let url = URL(string: Constants.covidDeathsURL) else { return }
+        guard let url = URL(string: Constants.covidStatsURL) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, err) in
             print("☁️ Data fetched")
@@ -59,14 +59,14 @@ class ChartViewModel: ObservableObject {
                     
                     self.dataSet = self.filterData(data: timeseries, by: self.selectedCountry)
 
-                    let maxData = self.dataSet.max { $0.deaths < $1.deaths }
+                    let maxData = self.dataSet.max { $0.confirmed < $1.confirmed }
                     if let maxData = maxData {
-                        self.max = maxData.deaths
+                        self.max = maxData.confirmed
                     }
                     
                     let lastIndex = self.dataSet.count - 1
                     // Should probably check if elements exist
-                    self.increase = self.dataSet[lastIndex].deaths - self.dataSet[lastIndex - 1].deaths
+                    self.increase = self.dataSet[lastIndex].confirmed - self.dataSet[lastIndex - 1].confirmed
                     
                 }
                
